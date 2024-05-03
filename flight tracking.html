@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+
+ #text-container {
+      font-family: monospace;
+      font-size: 16px;
+      white-space: nowrap;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      border-color:black;
+      padding: 10px;
+      width: 400px;
+    }
+.container{
+    position:relative;
+}
+
+
+
+    .cube {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: spin 20s infinite linear;
+      background-color: 0 0 0px 5px rgba(32, 255, 244, 0.7);
+    }
+
+    .face {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      font-weight: bold;
+      animation: glow 2s infinite;
+    }
+
+    .front {
+      transform: translateZ(100px);
+background-color: 0 0 10px 5px rgba(32, 255, 244, 0.7);
+      box-shadow: 0 0 10px 5px rgba(0, 0, 255, 0.8);
+    }
+
+    .back {
+      transform: rotateY(180deg) translateZ(100px);
+background-color: 0 0 10px 5px rgba(32, 255, 244, 0.7);
+      box-shadow: 0 0 10px 5px rgba(0, 0, 255, 0.8);
+    }
+
+    .right {
+      transform: rotateY(-90deg) translateZ(100px);
+background-color: 0 0 10px 5px rgba(32, 255, 244, 0.7);
+      box-shadow: 0 0 10px 5px rgba(0, 0, 255, 0.8);
+    }
+
+    .left {
+      transform: rotateY(90deg) translateZ(100px);
+background-color: 0 0 10px 5px rgba(32, 255, 244, 0.7);
+      box-shadow: 0 0 10px 5px rgba(0, 0, 255, 0.8);
+    }
+
+   .top {
+      transform: rotateX(90deg) translateZ(100px);
+background-color: 0 0 10px 5px rgba(32, 255, 244, 0.7);
+      box-shadow: 0 0 10px 5px rgba(0, 0, 255, 0.8);
+    }
+
+    .bottom {
+      transform: rotateX(-90deg) translateZ(100px);
+background-color: 0 0 10px 5px rgba(32, 255, 244, 0.7);
+      box-shadow: 0 0 10px 5px rgba(0, 0, 255, 0.8);
+    }
+
+    @keyframes spin {
+      0% { transform: rotateX(0) rotateY(0) rotateZ(0); }
+      50% {transform: rotateX(2turn) rotateY(1turn) rotateZ(1turn);}
+      100% {transform: rotateX(2turn) rotateY(2turn) rotateZ(2turn);}
+    }
+
+   @keyframes glow {
+      0% { box-shadow: -100px 50px 5px rgba(57, 255, 20, 1); 
+      background-color:0 0 5px rgba(32, 255, 244, 0.7);
+      }
+      50% { box-shadow: 100px -50px 25px rgba(57, 255, 20, 1); 
+      background-color: 0 0 100px 25px rgba(32, 255, 244, 0.7);
+      }
+       100% { box-shadow: -100px 50px 5px rgba(57, 255, 20, 1); 
+        background-color: 0 10px 5px rgba(32, 255, 244, 0.7);
+       }
+    } 
+  </style>
+  <script>
+  function myFunction(){
+   window.location.href="https://flightradar24.com";   
+  }
+  </script>
+</head>
+<body bgcolor="black" onclick="myFunction()" id="bd">
+  <br><BR><BR><BR><BR>
+  <center>
+  
+    <div class="cube">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+    
+   <div class="container" id="text-container" style="color:#39FF14;">
+     </div>
+    
+  </center>
+    <script>
+/*    window.location.href="https://windy.com"   */
+    const textContainer = document.getElementById('text-container');
+    const text = 'System is Online. . .';
+    let index = 0;
+
+    function typeText() {
+      textContainer.textContent += text[index];
+      index++;
+
+      if (index < text.length) {
+        setTimeout(typeText, 100); // Adjust typing speed here (in milliseconds)
+      }
+    }
+
+    typeText();
+   
+/* document.getElementById("bd").innerHTML = "Series does not follow the pattern.";*/
+
+   
+    </script>
+  </body>
+</html>
